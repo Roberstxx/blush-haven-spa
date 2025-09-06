@@ -1,0 +1,84 @@
+{
+  "brand": "Petal Bloom Beauty",
+  "phone": "+52 1 999 123 4567",
+  "whatsappMessage": "Hola, me gustaría reservar un servicio. ¿Tienes disponibilidad esta semana?",
+  "social": {
+    "instagram": "https://instagram.com/petalbloombeauty",
+    "facebook": "https://facebook.com/petalbloombeauty",
+    "tiktok": "https://tiktok.com/@petalbloombeauty"
+  },
+  "hero": {
+    "headline": "Más que belleza, tu momento de paz",
+    "subheadline": "Uñas, maquillaje y peinados con detalle artesanal.",
+    "ctaPrimary": "Reservar por WhatsApp",
+    "ctaSecondary": "Ver servicios",
+    "badges": ["Atención personalizada", "Productos hipoalergénicos", "Resultados duraderos"]
+  },
+  "services": [
+    { 
+      "id": "nails-basic", 
+      "title": "Manicure Clásico", 
+      "price": "$250 MXN", 
+      "tag": "Uñas", 
+      "img": "/src/assets/service-manicure.jpg",
+      "description": "Manicure completo con esmaltado tradicional"
+    },
+    { 
+      "id": "nails-gel", 
+      "title": "Uñas en Gel", 
+      "price": "$420 MXN", 
+      "tag": "Uñas", 
+      "img": "/src/assets/service-gel-nails.jpg",
+      "description": "Esmaltado en gel de larga duración"
+    },
+    { 
+      "id": "makeup-event", 
+      "title": "Maquillaje de Evento", 
+      "price": "$650 MXN", 
+      "tag": "Maquillaje", 
+      "img": "/src/assets/service-makeup.jpg",
+      "description": "Maquillaje profesional para ocasiones especiales"
+    },
+    { 
+      "id": "hair-updo", 
+      "title": "Peinado Recogido", 
+      "price": "$500 MXN", 
+      "tag": "Peinados", 
+      "img": "/src/assets/service-hair.jpg",
+      "description": "Peinados elegantes para eventos"
+    }
+  ],
+  "portfolio": [
+    { "img": "/src/assets/portfolio-1.jpg", "alt": "Diseño en tonos rosa pastel" },
+    { "img": "/src/assets/portfolio-2.jpg", "alt": "Maquillaje luminoso" },
+    { "img": "/src/assets/portfolio-3.jpg", "alt": "Peinado con ondas suaves" },
+    { "img": "/src/assets/portfolio-4.jpg", "alt": "Uñas con florales finos" }
+  ],
+  "testimonials": [
+    { "name": "María G.", "text": "Atención bellísima y súper delicada. Mis uñas duraron semanas.", "rating": 5 },
+    { "name": "Leticia R.", "text": "Maquillaje perfecto para mi evento. Me sentí increíble.", "rating": 5 },
+    { "name": "Ana S.", "text": "El mejor salón de Campeche. Siempre quedo feliz con el resultado.", "rating": 5 }
+  ],
+  "about": {
+    "title": "Cuidamos cada detalle",
+    "text": "En Petal Bloom Beauty combinamos técnica y calidez para que cada visita sea un respiro. Trabajamos con productos de calidad, siguiendo buenas prácticas de higiene y cuidado de la piel.",
+    "values": [
+      "Productos de alta calidad",
+      "Técnicas profesionales",
+      "Ambiente relajante",
+      "Atención personalizada"
+    ]
+  },
+  "faqs": [
+    { "q": "¿Cómo reservo?", "a": "Toca el botón de WhatsApp y envíanos tu horario ideal. Te confirmamos enseguida." },
+    { "q": "¿Aceptan pagos con tarjeta?", "a": "Sí, aceptamos tarjeta, efectivo y transferencias." },
+    { "q": "¿Hay estacionamiento?", "a": "Contamos con estacionamiento frente al local." },
+    { "q": "¿Cuánto duran los servicios?", "a": "El manicure toma 45 min, uñas en gel 1.5 horas, maquillaje 1 hora y peinados entre 1-2 horas." }
+  ],
+  "contact": {
+    "address": "Calle Ejemplo 123, Campeche, México",
+    "hours": "Lun-Sáb 10:00–19:00",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8!2d-90.5349!3d19.8301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDQ5JzQ4LjQiTiA5MMKwMzInMDUuNyJX!5e0!3m2!1sen!2smx!4v1234567890!5m2!1sen!2smx",
+    "email": "contacto@petalbloom.mx"
+  }
+}

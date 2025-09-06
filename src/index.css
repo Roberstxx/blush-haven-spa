@@ -1,105 +1,258 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Petal Bloom Beauty - Design System */
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Design Tokens */
+:root {
+  /* Brand Colors (HSL) */
+  --pink-900: 330 70% 18%;
+  --pink-700: 330 75% 45%;
+  --pink-600: 330 85% 58%;
+  --pink-400: 330 100% 80%;
+  --pink-100: 330 100% 95%;
+  --ink: 222 15% 12%;
+  --muted: 220 14% 96%;
+  --white: 0 0% 100%;
 
-@layer base {
+  /* Semantic Colors */
+  --bg: var(--white);
+  --fg: var(--ink);
+  --brand: var(--pink-600);
+  --brand-contrast: var(--white);
+  --brand-light: var(--pink-400);
+  --brand-lighter: var(--pink-100);
+  --line: var(--muted);
+  --card: var(--white);
+
+  /* Typography */
+  --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Playfair Display', serif;
+
+  /* Spacing & Layout */
+  --container-max: 1200px;
+  --section-py: 5rem;
+  --reveal-distance: 18px;
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px hsl(var(--ink) / 0.04);
+  --shadow-md: 0 4px 24px hsl(var(--ink) / 0.08);
+  --shadow-lg: 0 8px 40px hsl(var(--ink) / 0.12);
+  --shadow-brand: 0 8px 32px hsl(var(--brand) / 0.2);
+
+  /* Transitions */
+  --transition-base: 0.2s ease-out;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  color: hsl(var(--fg));
+  background: hsl(var(--bg));
+}
+
+/* Typography Scale */
+.text-xs { font-size: 0.75rem; line-height: 1rem; }
+.text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+.text-base { font-size: 1rem; line-height: 1.5rem; }
+.text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+.text-xl { font-size: 1.25rem; line-height: 1.75rem; }
+.text-2xl { font-size: 1.5rem; line-height: 2rem; }
+.text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+.text-4xl { font-size: 2.25rem; line-height: 2.5rem; }
+.text-5xl { font-size: 3rem; line-height: 1; }
+.text-6xl { font-size: 3.75rem; line-height: 1; }
+
+.font-normal { font-weight: 400; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 800; }
+
+.font-display { font-family: var(--font-display); }
+
+/* Layout Utilities */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: var(--section-py) 0;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+
+/* Component Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: hsl(var(--brand));
+  color: hsl(var(--brand-contrast));
+  box-shadow: var(--shadow-brand);
+}
+
+.btn-primary:hover {
+  background: hsl(var(--pink-700));
+  transform: translateY(-1px);
+  box-shadow: 0 12px 48px hsl(var(--brand) / 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: hsl(var(--brand));
+  border-color: hsl(var(--brand));
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--brand-lighter));
+}
+
+.card {
+  background: hsl(var(--card));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  transition: opacity 0.6s var(--transition-smooth), transform 0.6s var(--transition-smooth);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Gradient Animations */
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before,
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  width: 40vmax;
+  height: 40vmax;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: float 18s ease-in-out infinite alternate;
+}
+
+.hero-bg::before {
+  top: -20vmax;
+  left: -20vmax;
+  background: radial-gradient(60% 60% at 50% 50%, hsl(var(--pink-400)) 0%, transparent 60%);
+}
+
+.hero-bg::after {
+  bottom: -20vmax;
+  right: -20vmax;
+  background: radial-gradient(60% 60% at 50% 50%, hsl(var(--pink-600)) 0%, transparent 60%);
+  animation-duration: 22s;
+}
+
+@keyframes float {
+  from { transform: translate(-10%, -6%) scale(1); }
+  to { transform: translate(8%, 10%) scale(1.15); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --section-py: 3rem;
+    --reveal-distance: 12px;
   }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-6xl { font-size: 2.5rem; }
+  .text-5xl { font-size: 2rem; }
+  .text-4xl { font-size: 1.75rem; }
+}
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .hero-bg::before,
+  .hero-bg::after,
+  * {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+/* Focus States */
+*:focus-visible {
+  outline: 2px solid hsl(var(--brand));
+  outline-offset: 2px;
 }
